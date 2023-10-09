@@ -6,7 +6,7 @@
 /*   By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:04:10 by mafranco          #+#    #+#             */
-/*   Updated: 2023/10/09 22:53:41 by mafranco         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:13:48 by mafranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ char	*getbits(int c)
 	return (bits);
 }
 
-void	send_bits(int pid, char i)
+int	send_bits(int pid, char i)
 {
 	int		bit;
 	char	*bits;
 
 	bits = getbits(i);
+	if (!bits)
+		return (1);
 	bit = 7;
 	while (bit >= 0)
 	{
@@ -52,10 +54,11 @@ void	send_bits(int pid, char i)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(75);
+		usleep(150);
 		bit--;
 	}
 	free(bits);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -72,7 +75,11 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	while (argv[2][i] != '\0')
 	{
-		send_bits(pid, argv[2][i]);
+		if (send_bits(pid, argv[2][i]) == 1)
+		{
+			ft_printf("Allocating memory failed\n");
+			return (0);
+		}
 		i++;
 	}
 	send_bits(pid, '\n');
