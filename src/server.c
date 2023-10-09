@@ -6,7 +6,7 @@
 /*   By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:04:19 by mafranco          #+#    #+#             */
-/*   Updated: 2023/10/09 19:50:31 by mafranco         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:47:06 by mafranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ void	handler(int signal)
 {
 	static int	bit;
 	static int	i;
+	static int	add = 1;
 
 	if (signal == SIGUSR1)
-		i |= (0x01 << bit);
+		i += add;
+	add += add;
 	bit++;
-	ft_printf("bit : %d, i : %d\n", bit, i);
 	if (bit == 8)
 	{
 		ft_printf("%c", i);
 		bit = 0;
 		i = 0;
+		add = 1;
 	}
 }
 

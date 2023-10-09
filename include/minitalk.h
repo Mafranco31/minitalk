@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 16:12:10 by ajordan-          #+#    #+#             */
-/*   Updated: 2023/10/09 19:08:46 by mafranco         ###   ########.fr       */
+/*   Created: 2023/10/09 22:30:15 by mafranco          #+#    #+#             */
+/*   Updated: 2023/10/09 22:30:19 by mafranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
