@@ -6,7 +6,7 @@
 /*   By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:04:10 by mafranco          #+#    #+#             */
-/*   Updated: 2023/10/09 23:13:48 by mafranco         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:41:38 by mafranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,15 @@ int	send_bits(int pid, char i)
 	return (0);
 }
 
+void	checkpid(int pid)
+{
+	if (pid <= 0)
+	{
+		ft_printf("Pid must be > 0\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int	pid;
@@ -73,6 +82,7 @@ int	main(int argc, char **argv)
 	}
 	i = 0;
 	pid = ft_atoi(argv[1]);
+	checkpid(pid);
 	while (argv[2][i] != '\0')
 	{
 		if (send_bits(pid, argv[2][i]) == 1)

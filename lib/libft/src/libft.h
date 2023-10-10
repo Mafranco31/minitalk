@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+        */
+/*   By: mafranco <mafranco@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 22:30:15 by mafranco          #+#    #+#             */
-/*   Updated: 2023/10/10 17:35:18 by mafranco         ###   ########.fr       */
+/*   Created: 2023/05/05 16:55:46 by mafranco          #+#    #+#             */
+/*   Updated: 2023/10/09 19:08:24 by mafranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-#ifndef MINITALK_H
-# define MINITALK_H
-
-# include "../lib/libft/src/libft.h"
-# include "../lib/ftprintf/ft_printf.h"
-# include <signal.h>
+int		ft_atoi(const char *nptr);
 
 #endif

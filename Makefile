@@ -6,15 +6,18 @@
 #    By: mafranco <mafranco@student.barcelona.>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 11:26:53 by mafranco          #+#    #+#              #
-#    Updated: 2023/10/09 21:16:03 by mafranco         ###   ########.fr        #
+#    Updated: 2023/10/10 17:38:50 by mafranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT = ./libft/libft.a
-FTPRINTF = ./ftprintf/libftprintf.a
+LIBFT = ./lib/libft/libft.a
+FTPRINTF = ./lib/ftprintf/libftprintf.a
 RM = rm -rf
+
+LIBFT_PATH	=	./lib/libft
+FTPRINTF_PATH	=	./lib/ftprintf
 
 SERVER = server
 CLIENT = client
@@ -32,9 +35,9 @@ RESET	=	\033[0m
 all: $(SERVER) $(CLIENT)
 
 $(LIBFT):
-	@make -C ./libft
+	@make -s -C $(LIBFT_PATH)
 $(FTPRINTF):
-	@make -C ./ftprintf
+	@make -s -C $(FTPRINTF_PATH)
 
 $(SERVER): $(SV_OBJS) $(LIBFT) $(FTPRINTF)
 	@$(CC) $(CFLAGS) $(SV_OBJS) $(LIBFT) $(FTPRINTF) -o server
@@ -45,14 +48,14 @@ $(CLIENT): $(CLIENT_OBJS) $(LIBFT) $(FTPRINTF)
 	@echo "$(GREEN)client created$(RESET)"
 	
 clean:
-	@$(MAKE) clean -C ./libft
-	@$(MAKE) clean -C ./ftprintf
+	@make -s clean -C $(LIBFT_PATH)
+	@make -s clean -C $(FTPRINTF_PATH)
 	@$(RM) $(SV_OBJS) $(CLIENT_OBJS)
 	@echo "$(YELLOW)objects deleted$(RESET)"
 
 fclean: clean
-	@$(MAKE) fclean -C ./libft
-	@$(MAKE) fclean -C ./ftprintf
+	@make -s fclean -C $(LIBFT_PATH)
+	@make -s fclean -C $(FTPRINTF_PATH)
 	@$(RM) $(SERVER) $(CLIENT)
 	@echo "$(YELLOW)server and client deleted$(RESET)"
 
