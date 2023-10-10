@@ -6,7 +6,7 @@
 #    By: mafranco <mafranco@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 13:06:34 by mafranco          #+#    #+#              #
-#    Updated: 2023/10/09 21:14:49 by mafranco         ###   ########.fr        #
+#    Updated: 2023/10/10 18:00:13 by mafranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ RM	=	rm -f
 
 OBJ = $(SRC:.c=.o)
 
-OBJ_DIR =	.obj
-
 GREEN	=	\033[1;32m
 YELLOW	=	\033[1;33m
 RESET	=	\033[0m
@@ -35,7 +33,7 @@ all:	$(NAME)
 %.o: %.c $(LIB)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) $(LIB) $(OBJ_DIR)
+$(NAME): $(OBJ) $(LIB)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "$(GREEN)ftprintf.a compiled$(RESET)"
 
